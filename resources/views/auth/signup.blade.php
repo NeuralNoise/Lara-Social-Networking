@@ -1,5 +1,11 @@
 @extends('templates.default')
 @section('content')
+
+
+    <h3>Sign Up To SNS, its free, plus we don't track you.</h3>
+ 
+
+
 <div class="row">
     <div class="col-lg-6">
         <form class="form-vertical" role="form" method="post" action="{{route('auth.signup')}}">
