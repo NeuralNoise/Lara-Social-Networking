@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use Auth;
 
 
 class AuthController extends Controller
@@ -42,6 +42,18 @@ class AuthController extends Controller
       'password'=>'required|min:6',
     ]);
 
+    if(!Auth::attempt($request->Only(['email','password']),$request->has('remember'))){
+
+      return redirect('/')->with('info',"couldn't sign you in");
+    }
+
+    return redirect('/')->with('info',"You are signed in");
+
+  }
+
+  public function getsignout(){
+    Auth::logout();
+    return redirect('/')->with('info',"You have signed out");
   }
 
 
