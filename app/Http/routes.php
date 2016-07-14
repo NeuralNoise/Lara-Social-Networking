@@ -30,27 +30,44 @@ Route::get('/',  [
 
 Route::get('/signup',[
   'as'=>'auth.signup',
-  'uses'=>'AuthController@getsignup'
+  'uses'=>'AuthController@getsignup',
+  'middleware'=>['guest']
 ]);
 
 
 Route::post('/signup',[
-  'uses'=>'AuthController@postsignup'
+  'uses'=>'AuthController@postsignup',
+  'middleware'=>['guest']
+
+
 ]);
 
 
 Route::get('/signin',[
   'as'=>'auth.signin',
-  'uses'=>'AuthController@getsignin'
+  'uses'=>'AuthController@getsignin',
+  'middleware'=>['guest']
 ]);
 
 
 Route::post('/signin',[
-  'uses'=>'AuthController@postsignin'
+  'uses'=>'AuthController@postsignin',
+  'middleware'=>['guest']
 ]);
 
 
 Route::get('/signout',[
   'as'=>'auth.signout',
   'uses'=>'AuthController@getsignout'
+]);
+
+
+/*
+*
+*Search
+*/
+
+Route::get('/search',[
+  'uses'=>'SearchController@getResults',
+  'as'=>'search.results'
 ]);
