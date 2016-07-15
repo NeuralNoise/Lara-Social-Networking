@@ -11,11 +11,17 @@
 |
 */
 
+Route::get('/@{profile}',function($profile){
+
+return "Checking if stuff works ".$profile;
+
+});
 
 /*
 *
 *Home
 */
+
 
 Route::get('/',  [
   'as' => 'home',
