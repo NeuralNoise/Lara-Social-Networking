@@ -77,3 +77,16 @@ Route::get('/search',[
   'uses'=>'SearchController@getResults',
   'as'=>'search.results'
 ]);
+
+
+/*
+*
+*User Profile
+*/
+
+
+Route::get('/user/',[
+  'as'=>'auth.signup',
+  'uses'=>'AuthController@getsignup',
+  'middleware'=>['guest']
+]);
