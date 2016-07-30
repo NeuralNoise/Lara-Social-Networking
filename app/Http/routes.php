@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/@{profile}',function($profile){
-
-return "Checking if stuff works ".$profile;
-
-});
 
 /*
 *
@@ -81,12 +76,11 @@ Route::get('/search',[
 
 /*
 *
-*User Profile
+*Profile
 */
 
 
-Route::get('/user/',[
-  'as'=>'auth.signup',
-  'uses'=>'AuthController@getsignup',
-  'middleware'=>['guest']
+Route::get('/user/@{username}',[
+'uses'=>'ProfileController@getProfile',
+'as'=>'profile.index',
 ]);

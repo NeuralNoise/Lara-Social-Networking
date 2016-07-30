@@ -14,7 +14,6 @@ class SearchController extends Controller
 
        $searchterm=$request->searchquery;
 
-
        if(!$searchterm){
          return redirect('/');
        }
@@ -23,8 +22,7 @@ class SearchController extends Controller
        ->orWhere('username','LIKE',"%{$searchterm}%")
        ->get();
 
+       return view('search.results')->with('users',$users);
        
-
-     return view('search.results')->with('users',$users);
      }
 }
